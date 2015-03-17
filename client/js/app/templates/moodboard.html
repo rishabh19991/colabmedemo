@@ -1,0 +1,40 @@
+    <!-- header start -->
+    <div class="header">
+      <a class="logo" ui-sref="dashboard({currentUserId: currentUserId})"><img src="images/logo.png" alt=""></a>
+      <span class="menu_btn"><img src="images/menu.png" alt=""></span>
+    </div>
+    <!-- header end -->
+
+    <!-- wrapper start -->
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="moodboard_title">{{moodboard.name}}</h1>
+        <div class="moodboard_page" ng-repeat="page in pages">
+          <div class="image" ><img ng-src="{{page.imageFile}}" alt=""></div>
+          <div class="text">
+            <h2><a ng-click="showPage(page.id)">{{page.name}}</a><span ng-click="deletePage(page.id)" class="close_btn"></span></h2>
+          </div>
+        </div>
+        <div class="add_moodboard_page"><a ng-click="addPage()">Add page</a></div>
+      </div>
+    </div>
+	
+    <!-- wrapper end -->
+
+    <!-- nav-menu start -->
+    <div class="nav_menu">
+      <ul>
+        <li><a ui-sref="add_moodboard({currentUserId: currentUserId})">Add moodboard</a></li>
+        <li><a ui-sref="dashboard({currentUserId: currentUserId})">Dashboard</a></li>
+        <li><a ui-sref="tasks({currentUserId: currentUserId})">My tasks</a></li>
+		<li><a ui-sref="profile({currentUserId: currentUserId})">Settings</a></li>
+        <li><a ng-click="logOut()" ui-sref="main">Log out</a></li>
+      </ul>
+    </div>
+    <!-- nav-menu end -->
+    
+    <!-- footer start -->
+    <div class="footer">
+      <p class="rights">Colabme © 2014 - All rights reserved.</p>
+    </div>
+    <!-- footer end -->

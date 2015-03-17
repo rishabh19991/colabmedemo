@@ -1,0 +1,28 @@
+{
+  "name": "Page",
+  "plural": "Pages",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "imageFile": {
+      "type": "string"
+    },
+    "data": {
+      "type": "string",
+      "required": true,
+      "dataType": "longtext"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "moodboard": {
+      "type": "belongsTo",
+      "model": "Moodboard"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

@@ -1,0 +1,43 @@
+    <!-- header start -->
+    <div class="header">
+      <a class="logo" ui-sref="dashboard({currentUserId: currentUserId})"><img src="images/logo.png" alt=""></a>
+      <span class="menu_btn"><img src="images/menu.png" alt=""></span>
+    </div>
+    <!-- header end -->
+
+    <!-- wrapper start -->
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="mytask_title">My tasks</h1>
+          <div class="moodboard_task" ng-repeat="moodboard in moodboards" ng-show="moodboard.id">
+            <h2>{{moodboard.name}}</h2>
+            <div class="task_row" ng-repeat="pages in pagesAll">
+              <div ng-repeat="page in pages.pages | filter: {moodboardId: moodboard.id}">
+                <div class="task" ng-repeat="task in tasks | filter: {pageId: page.id, accountId: currentUserId}">
+                  <input ng-attr-id="{{task.id}}" ng-model="task.done" ng-change="updateTaskState(task.id,task.done)" type="checkbox">
+                  <label ng-attr-for="{{task.id}}">{{task.name}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- wrapper end -->
+
+    <!-- nav-menu start -->
+    <div class="nav_menu">
+      <ul>
+        <li><a ui-sref="add_moodboard({currentUserId: currentUserId})">Add moodboard</a></li>
+        <li><a ui-sref="dashboard({currentUserId: currentUserId})">Dashboard</a></li>
+        <li><a ui-sref="tasks({currentUserId: currentUserId})">My tasks</a></li>
+		<li><a ui-sref="profile({currentUserId: currentUserId})">Settings</a></li>
+        <li><a ng-click="logOut()" ui-sref="main">Log out</a></li>
+      </ul>
+    </div>
+    <!-- nav-menu end -->
+    
+    <!-- footer start -->
+    <div class="footer">
+      <p class="rights">Colabme © 2014 - All rights reserved.</p>
+    </div>
+    <!-- footer end -->

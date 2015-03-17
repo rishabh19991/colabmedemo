@@ -1,0 +1,97 @@
+<!-- header start -->
+<div class="header">
+  <a class="logo" ng-click="checkForChanges('dashboard')"><img src="images/logo.png" alt=""></a>
+  <span class="menu_btn"><img src="images/menu.png" alt=""></span>
+</div>
+<!-- header end -->
+
+<!-- wrapper start -->
+<div class="wrapper page">
+  <div class="content page">
+    <div class="workflow" id="newworkflow" ng-init="zoomScroller()">
+    </div>
+    <ul class="toolbar" data-role="editor-toolbar">
+      <li><a class="bold" data-edit="bold"></a></li>
+      <li><a class="italic" data-edit="italic"></a></li>
+      <li><a class="underline" data-edit="underline"></a></li>
+      <li><a class="inc_font" data-edit="fontSize i"></a></li>
+      <li><a class="dec_font" data-edit="fontSize d"></a></li>
+	  <li class="inputWrapper" style="height: 30px; width: 25px; margin-top:5px"><input id="inputImage" type="file" class="fileInput" accept="image/*" ng-init="addnewImage()" /></li>
+	  <li><a class="fa fa-info" ng-click="shareMoodboard()"></a></li>
+	  <li><a class="fa fa-print" ng-click="exportMoodboard()"></a></li>
+    </ul>
+    <div class="create_btn">
+      <input class="page_name" type="text" name="content" ng-model="pageName">
+    </div>
+    <div class="left_sidebar">
+      <ul class="sidebar">
+        <li class="sidebar_li" ng-repeat="task in tasks | filter: {pageId: pageId}" ng-show="pageId">
+          <p class="sidebar_a">
+            <input ng-attr-id="{{task.id}}" ng-model="task.done" ng-change="updateTaskState(task.id,task.done)" type="checkbox">
+            <label ng-attr-for="{{task.id}}">{{task.name}}</label>
+          </p>
+        </li>
+		<li class="sidebar_li"><div class="new_a_class" style="border-left: 4px solid #dbeeff;padding: 20px 10px;margin-left: 1px;border-bottom: 1px solid #d3d2d2;width:223px;font-size:18px;text-transform: uppercase;"><a style="color: #221f1f;text-decoration: none; cursor:pointer" ng-click="showTaskForm()">Task</a> / <a style="color: #221f1f;text-decoration: none;cursor:pointer" ng-click="openchatBox = true">Chat</a></li>
+        <div ng-show="showTask" class="showTask">
+          <input type="text" class="page_name name" placeholder="Task description" ng-model="taskDescription">
+          <ui-select ng-model="userAccount.selected" theme="select2" style="width: 224px;margin: 10px 0 10px 6px;" class="single">
+            <ui-select-match placeholder="Select user...">{{$select.selected.email}}</ui-select-match>
+            <ui-select-choices repeat="userAccount in userAccounts | filter: $select.search">
+              <span ng-bind-html="userAccount.email | highlight: $select.search"></span>
+            </ui-select-choices>
+          </ui-select>
+          <button type="submit" class="save_btn one" ng-click="addTask()">Add task</button>
+        </div>
+		<!-- Chat Section start -->
+
+		<section class="chat-section left_sidebar" id="chat_application" ng-show="openchatBox" style="position:relative; width:372px; overflow:hidden;right:126px; border-left:0" ng-controller="ChatCtrl">
+		<div class="container">
+		<div class="row">
+		<div class="col-md-10">
+		<div class="panel panel-info">
+		<div class="panel-heading">
+		Welcome! {{data.username}}
+		</div>
+		<div class="panel-body" id="chat_history" style="overflow-y:scroll;">
+		<ul class="media-list" style="height:270px">
+		<li ng-repeat="message in messages track by $index" class="media">
+		<i class="fa fa-comment"></i>
+		<span ng-if="!message.message">{{message}}</span><span ng-if="message.message">{{message.message}}</span>&nbsp; &nbsp;&nbsp;<i class="fa fa-plus-square" alt="Add Task" ng-click="addTask(message.message)"></i></li>
+		</ul>
+		</div>
+		<div class="panel-footer">
+		<form ng-submit="publish()" class="ng-valid ng-dirty">
+		<div class="input-group">
+		<input class="input-sm form-control ng-valid ng-dirty" style="width:90%" ng-model="newMessage" type="text" required />
+		<span class="input-group-btn">
+		<input class="btn btn-info" type="submit" value="Send" />
+		</span>
+		</div>
+		</form>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</section>
+
+	<!-- Chat Section Ends Here -->
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- wrapper end -->
+
+<!-- nav-menu start -->
+<div class="nav_menu">
+  <ul>
+    <li><a ng-click="checkForChanges('add_moodboard')">Add moodboard</a></li>
+    <li><a ng-click="checkForChanges('dashboard')">Dashboard</a></li>
+    <li><a ng-click="checkForChanges('tasks')">My tasks</a></li>
+	<li><a ui-sref="profile({currentUserId: currentUserId})">Settings</a></li>
+	
+    <li><a ng-click="logOut()" ui-sref="main">Log out</a></li>
+  </ul>
+</div>
+
+<!-- nav-menu end -->

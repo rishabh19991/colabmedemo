@@ -1,0 +1,38 @@
+{
+  "name": "Moodboard",
+  "plural": "Moodboards",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accounts": {
+      "type": "hasAndBelongsToMany",
+      "model": "Account"
+    },
+    "pages": {
+      "type": "hasMany",
+      "model": "Page"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$related",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": []
+}

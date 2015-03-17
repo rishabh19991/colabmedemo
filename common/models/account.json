@@ -1,0 +1,38 @@
+{
+  "name": "Account",
+  "plural": "Accounts",
+  "base": "User",
+  "idInjection": false,
+  "properties": {
+    "fullname": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "moodboards": {
+      "type": "hasAndBelongsToMany",
+      "model": "Moodboard"
+    },
+    "tasks": {
+      "type": "hasMany",
+      "model": "Task"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Task",
+  "plural": "Tasks",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "done": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account"
+    },
+    "page": {
+      "type": "belongsTo",
+      "model": "Page"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

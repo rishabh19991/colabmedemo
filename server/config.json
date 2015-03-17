@@ -1,0 +1,6 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 7500,
+  "url": "http://localhost:7500/"
+}

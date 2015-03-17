@@ -1,0 +1,62 @@
+    <!-- header start -->
+    <div class="header">
+      <a class="logo" ui-sref="dashboard({currentUserId: currentUserId})"><img src="images/logo.png" alt=""></a>
+      <span class="menu_btn"><img src="images/menu.png" alt=""></span>
+    </div>
+    <!-- header end -->
+
+    <!-- wrapper start -->
+	
+	<!-- User Profile Screen -->
+	<div class="wrapper" ng-init="ProfileView()">
+		<div class="content">
+			<h1 class="dashboard_title">My Profile</h1>
+			<div class="add_moodboard_form">
+			<form role="form" name="form2" class="ng-pristine ng-invalid ng-invalid-required">
+				<h2>User Name</h2>
+				<div class="form_input tags">
+					<input type="text" name="name" ng-model="updateprofile.name" />
+				</div>
+				<h2>Email Id</h2>
+				<div class="form_input tags">
+					<input type="email" name="email" ng-model="updateprofile.email" />
+				</div>
+				<h2>New Password</h2>
+				<div class="form_input tags">
+					<input type="password" name="content"
+							placeholder="New Password"
+							ng-model="updateprofile.pass">
+				</div>
+				<h2>Confirm Password</h2>
+				<div class="form_input tags">
+					<input type="password" name="password"
+							placeholder="Confirm Password"
+							ng-model="updateprofile.cpass">
+				</div>
+				<span style="color:red;" ng-show="showError">Password do not match!</span>
+				<div class="create_btn">
+				  <button type="submit" ng-disabled="form3.$invalid" ng-click="updateProfile()">Submit</button>
+				</div>
+			  </form>
+			</div>
+		</div>
+	</div>
+    <!-- wrapper end -->
+
+    <!-- nav-menu start -->
+    <div class="nav_menu">
+      <ul>
+        <li><a ui-sref="add_moodboard({currentUserId: currentUserId})">Add moodboard</a></li>
+        <li><a ui-sref="dashboard({currentUserId: currentUserId})">Dashboard</a></li>
+        <li><a ui-sref="tasks({currentUserId: currentUserId})">My tasks</a></li>
+		<li><a ui-sref="profile({currentUserId: currentUserId})">Settings</a></li>
+        <li><a ng-click="logOut()" ui-sref="main">Log out</a></li>
+      </ul>
+    </div>
+    <!-- nav-menu end -->
+    
+    <!-- footer start -->
+    <div class="footer">
+      <p class="rights">Colabme © 2014 - All rights reserved.</p>
+    </div>
+    <!-- footer end -->

@@ -1,0 +1,42 @@
+<!-- header start -->
+<div class="header">
+  <a class="logo" ui-sref="main"><img src="images/logo.png" alt=""></a>
+</div>
+<!-- header end -->
+
+<!-- wrapper start -->
+<div class="wrapper front">
+  <div class="content">
+    <h1 class="add_moodboard_title">Create account</h1>
+    <div class="add_moodboard_form">
+      <form role="form" name="form1">
+	  <div class="form_input name">
+        	<input type="text" name="fname"
+        			placeholder="First name" required
+        			ng-model="moodboardAccount.fname">
+        </div>
+        <div class="form_input name">
+        	<input type="text" name="content"
+        			placeholder="email" required
+        			ng-model="moodboardAccount.email">{{moodboardAccount.email}}
+        </div>
+        <div class="form_input tags">
+        	<input type="password" name="password"
+        			placeholder="pass" required
+        			ng-model="moodboardAccount.password">
+        </div>
+        <div class="create_btn">
+          <button type="submit" ng-disabled="form1.$invalid" ng-click="sign(moodboardAccount)">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- wrapper end -->
+
+<!-- footer start -->
+<div class="footer front">
+  <p class="rights">Colabme © 2014 - All rights reserved.</p>
+</div>
+<!-- footer end -->
+

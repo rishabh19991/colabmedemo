@@ -1,0 +1,39 @@
+<section class="chat-section" id="chat_application">
+<div class="container">
+<div class="dialog dialog-success">
+<h6 class="ng-binding">
+Welcome {{currentUserName}}, click to select a channel below <a ng-href="/join" href="/join">sign out</a>
+</h6>
+</div>
+<div class="row">
+<div class="col-md-2">
+<small class="marker">Online Users</small>
+<ul class="list-unstyled">
+<li class="ng-scope">
+<span class="label btn-mini userlabel ng-binding label-info" ng-class="{'label-default': user != data.username, 'label-info': (user == data.username)}" title="(Location: tet)">
+<i class="fa fa-user"></i>{{currentUserName}}
+</span>
+</li>
+</ul>
+</div>
+<div class="col-md-10">
+<small class="marker">Chat History</small>
+<form ng-submit="publish()" class="ng-valid ng-dirty">
+<div class="input-group">
+<input class="input-sm form-control ng-valid ng-dirty" ng-model="newMessage" type="text">
+<span class="input-group-btn">
+<input class="input-sm btn btn-default" type="submit" value="Send">
+</span>
+</div>
+</form>
+<div class="well chatbox" id="chat_history">
+<ul class="list-unstyled">
+<li ng-repeat="message in messages track by $index" class="ng-scope ng-binding">
+<i class="fa fa-comment"></i>
+{{message}}   <i class="fa fa-plus-square" alt="Add Task" ng-click="addTask(message)"></i></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>

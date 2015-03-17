@@ -1,0 +1,14 @@
+{
+  "memdb": {
+    "name": "memdb",
+    "connector": "memory"
+  },
+  "db": {
+    "database": "colabme",
+    "password": "",
+    "name": "db",
+    "connector": "mysql",
+    "user": "root",
+    "socketPath": "/var/lib/mysql/mysql.sock"
+  }
+}

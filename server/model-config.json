@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "sources": [
+      "../common/models",
+      "./models"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Account": {
+    "dataSource": null,
+    "public": true
+  },
+  "Moodboard": {
+    "dataSource": null,
+    "public": true
+  },
+  "Page": {
+    "dataSource": null,
+    "public": true
+  },
+  "Task": {
+    "dataSource": null,
+    "public": true
+  }
+}
