@@ -4,11 +4,13 @@
     "connector": "memory"
   },
   "db": {
-    "database": "colabme",
-    "password": "",
+	"host": "ec2-184-73-221-47.compute-1.amazonaws.com"
+    "database": "d5uiq6gv6bm81m",
+    "password": "qhOOkS5al0LGDq4u5xCE0f8v9C",
     "name": "db",
-    "connector": "mysql",
-    "user": "root",
-    "socketPath": "/var/lib/mysql/mysql.sock"
+	"Psql": "heroku pg:psql --app heroku-postgres-7f7c667f HEROKU_POSTGRESQL_CRIMSON",
+    "user": "zdqmkamwpakayz",
+	"port": "5432",
+    "url": "postgres://zdqmkamwpakayz:qhOOkS5al0LGDq4u5xCE0f8v9C@ec2-184-73-221-47.compute-1.amazonaws.com:5432/d5uiq6gv6bm81m"
   }
 }
